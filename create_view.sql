@@ -133,7 +133,6 @@ FROM
         LEFT JOIN
     ProductOnOrder po ON p.ProductID = po.ProductID
 WHERE
-    p.IsActive IS TRUE -- Фильтруем по активности товара
-  AND COALESCE(ps.CurrentStock, 0) <= p.ReorderLevel; -- Фильтруем по уровню запасов
+    p.IsActive IS TRUE; -- Фильтруем только активные товары
 
 SELECT * FROM v_ProductsToReorder;
